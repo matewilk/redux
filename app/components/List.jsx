@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatButton } from 'material-ui';
-import { List, ListItem} from 'material-ui';
+import { List, ListItem } from 'material-ui';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 class Listt extends React.Component {

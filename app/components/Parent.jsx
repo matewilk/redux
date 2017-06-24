@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Flex, Box } from 'reflexbox';
 import shortid from 'shortid';
 
 import {
@@ -20,7 +21,7 @@ class Parent extends React.Component {
     };
   }
 
-  addToList (newValue) {
+  addItem (newValue) {
     let item = this.createItem(newValue);
     this.props.dispatch(addItem(item));
   }
@@ -36,8 +37,14 @@ class Parent extends React.Component {
   render () {
     return (
       <div>
-        <InputField addToList={this.addToList.bind(this)} />
-        <SearchField filter={this.filter.bind(this)} />
+        <Flex align='center'>
+          <Box px={2}>
+            <InputField addItem={this.addItem.bind(this)} />
+          </Box>
+          <Box px={2} ml='auto'>
+            <SearchField filter={this.filter.bind(this)} />
+          </Box>
+        </Flex>
         <div>
           <List list={this.props.list} removeItem={this.removeItem.bind(this)} />
         </div>

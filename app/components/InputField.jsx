@@ -16,7 +16,7 @@ class InputField extends React.Component {
 
   submitValue (event) {
     if (event.key === 'Enter') {
-      this.props.addToList(event.target.value);
+      this.props.addItem(event.target.value);
       this.setState({value: ''});
     }
   }
