@@ -55,7 +55,7 @@ class ItemsTable extends React.Component {
                 <TableRow key={item.id}>
                   <TableRowColumn>{item.name}</TableRowColumn>
                   <TableRowColumn>{item.category}</TableRowColumn>
-                  <TableRowColumn>{item.duedate}</TableRowColumn>
+                  <TableRowColumn>{item.duedate.toString()}</TableRowColumn>
                   <TableRowColumn>{item.value ? item.value : 0}</TableRowColumn>
                   <TableRowColumn children={this.getActionButtons(item)} />
                 </TableRow>

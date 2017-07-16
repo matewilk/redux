@@ -12,7 +12,7 @@ injectTapEventPlugin();
 
 import { Button, Welcome } from '@storybook/react/demo';
 import List from '../app/components/List';
-import ItemsTable from '../app/components/ItemsTable';
+import TicketsTable from '../app/components/TicketsTable';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -38,6 +38,6 @@ storiesOf('Table data', module)
       {id: '432', name: 'aqueous cream', category: 'shopping', value: '', duedate: '01/07/17'}
     ];
     return <MuiThemeProvider>
-      <ItemsTable list={list} removeItem={() => {}} editItem={() => {}} />
+      <TicketsTable list={list} removeItem={() => {}} editItem={() => {}} />
     </MuiThemeProvider>;
   });

@@ -9,21 +9,19 @@ import {
   filterItems
 } from '../actions/actions';
 
-import InputField from './InputField';
+import TicketForm from './TicketForm';
 import SearchField from './SearchField';
-import List from './List';
+import TicketsTable from './TicketsTable';
 
 class Parent extends React.Component {
-  createItem (value) {
-    return {
-      value: value,
-      id: shortid.generate()
-    };
+  addId (value) {
+    value.id = shortid.generate();
+    return value;
   }
 
-  addItem (newValue) {
-    let item = this.createItem(newValue);
-    this.props.dispatch(addItem(item));
+  addItem (formValues) {
+    let withId = this.addId(formValues);
+    this.props.dispatch(addItem(withId));
   }
 
   removeItem (item) {
@@ -39,14 +37,14 @@ class Parent extends React.Component {
       <div>
         <Flex align='center'>
           <Box px={2}>
-            <InputField addItem={this.addItem.bind(this)} />
+            <TicketForm addItem={this.addItem.bind(this)} />
           </Box>
           <Box px={2} ml='auto'>
             <SearchField filter={this.filter.bind(this)} />
           </Box>
         </Flex>
         <div>
-          <List list={this.props.list} removeItem={this.removeItem.bind(this)} />
+          <TicketsTable list={this.props.list} removeItem={this.removeItem.bind(this)} />
         </div>
       </div>
     );
